@@ -79,9 +79,3 @@ http://localhost:5173
 
 
 
-
-
-
-**Vishnavi**
-
-GitHub: https://github.com/vishnavi-bit
