@@ -1,0 +1,31 @@
+# Start the whole app with:   docker compose up --build
+# Then open http://localhost:8000
+#
+# Your data lives in the ./storage folder on your computer (uploaded PDFs, the
+# ChromaDB vector store and the SQLite database), so it survives container restarts.
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: pdf-chatbot:latest
+    container_name: pdf-chatbot
+    ports:
+      # Only this computer can reach the app (the app has no login). Change to "8000:8000"
+      # only if you deliberately want other devices on your network to reach it.
+      - "127.0.0.1:8000:8000"
+    # Reads backend/.env if it exists (put GEMINI_API_KEY there).
+    # The key stays on the server side and is never sent to the browser.
+    env_file:
+      - path: ./backend/.env
+        required: false
+    environment:
+      # Paths inside the container. They override the local paths from backend/.env.
+      DATABASE_URL: sqlite:////app/storage/app.db
+      CHROMA_PERSIST_DIRECTORY: /app/storage/chroma_db
+      UPLOAD_DIRECTORY: /app/storage/uploads
+      STATIC_DIRECTORY: /app/frontend/dist
+    volumes:
+      - ./storage:/app/storage
+    restart: unless-stopped

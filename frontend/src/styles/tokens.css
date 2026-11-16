@@ -1,0 +1,76 @@
+/*
+ * Design tokens: the single source of colours, radii and shadows for the app.
+ * Light is the default. Dark is applied when <html data-theme="dark"> is set
+ * (ThemeContext sets it, and remembers the user's choice).
+ */
+
+:root {
+  color-scheme: light;
+
+  /* Surfaces */
+  --color-bg: #f8fafc;             /* page background */
+  --color-surface: #ffffff;        /* cards, panels */
+  --color-surface-muted: #f1f5f9;  /* subtle areas, inputs at rest */
+  --color-surface-raised: #ffffff; /* popovers, dialogs */
+
+  /* Text */
+  --color-text: #0f172a;           /* headings and main text */
+  --color-text-soft: #334155;      /* body text */
+  --color-text-muted: #64748b;     /* secondary text */
+
+  /* Lines */
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+
+  /* Brand: indigo primary, violet secondary, teal for success and highlights */
+  --color-accent: #4f46e5;         /* indigo-600 */
+  --color-accent-hover: #4338ca;   /* indigo-700 */
+  --color-accent-soft: #eef2ff;    /* indigo-50 */
+  --color-accent-2: #7c3aed;       /* violet-600 */
+  --color-teal: #0d9488;           /* teal-600 */
+  --color-teal-soft: #f0fdfa;      /* teal-50 */
+
+  /* Status */
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-danger: #e11d48;
+
+  /* Shape and depth */
+  --radius-card: 1rem;
+  --radius-control: 0.75rem;
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.05), 0 4px 16px rgb(15 23 42 / 0.05);
+  --shadow-raised: 0 12px 32px rgb(15 23 42 / 0.12);
+
+  /* Typography */
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: #0b1120;
+  --color-surface: #111a2e;
+  --color-surface-muted: #1a2740;
+  --color-surface-raised: #17223a;
+
+  --color-text: #f1f5f9;
+  --color-text-soft: #cbd5e1;
+  --color-text-muted: #94a3b8;
+
+  --color-border: #22314d;
+  --color-border-strong: #33466a;
+
+  --color-accent: #818cf8;         /* lighter indigo keeps contrast on dark */
+  --color-accent-hover: #a5b4fc;
+  --color-accent-soft: #1e1b4b;
+  --color-accent-2: #a78bfa;
+  --color-teal: #2dd4bf;
+  --color-teal-soft: #0f2f2b;
+
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-danger: #fb7185;
+
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
+  --shadow-raised: 0 12px 32px rgb(0 0 0 / 0.5);
+}

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Upload PDFs and ask questions. Answers come with page-level citations." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>AI PDF Chatbot</title>
+    <script>
+      // Apply the saved theme before the page is drawn, so there is no flash of the wrong colours.
+      (function () {
+        try {
+          var saved = window.localStorage.getItem('pdfbot-theme');
+          var theme = saved === 'dark' || saved === 'light'
+            ? saved
+            : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) { /* storage blocked: the default light theme is used */ }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
