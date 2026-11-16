@@ -1,6 +1,6 @@
 
 
-=======
+
 # PDF Question Answering Chatbot
 
 An AI-powered application that allows users to upload PDF documents, ask questions, and get answers with source citations.
@@ -82,4 +82,4 @@ http://localhost:5173
 
 
 
->>>>>>> pdf/main
+
